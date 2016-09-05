@@ -10,5 +10,5 @@ if [ $age == "hash" ]; then
   open /Applications/Messages.app
 else
   echo ""
-  echo "Inavlid Password"
+  echo "Invalid Password"
 fi
