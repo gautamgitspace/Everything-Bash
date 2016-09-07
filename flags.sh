@@ -1,12 +1,16 @@
 #!/bin/bash
 #using getopts for flags
-while getopts :u:p:ab option; do
+if [ $# -lt 2 ];then
+  echo "Arguments Expected"
+  echo "[USAGE: -u <username> -p <passsphrase>]"
+fi
+while getopts :u:p: option; do
   case $option in
     u) user=$OPTARG;;
     p) pass=$OPTARG;;
-    a) echo 'GOT A';;
-    b) echo 'GOT B';;
-    ?) echo "I DO NOT WHAT $OPTARG IS";;
+    ?) echo "INVALID ARGUMENT ENCOUNTERED: -$OPTARG";;
   esac
 done
-echo "User: $user / Pass: $pass"
+if [ $# -gt 2 ];then
+  echo "User: $user / Pass: $pass"
+fi
